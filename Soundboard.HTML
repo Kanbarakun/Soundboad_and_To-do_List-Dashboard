@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Cute Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="login-container" class="login-container">
+    <form id="login-form" class="login-form">?
+      <h2>🌸 Dashboard Login</h2>
+      <input type="text" id="login-username" placeholder="Username" required autocomplete="username">
+      <input type="password" id="login-password" placeholder="Password" required autocomplete="current-password">
+      <button type="submit">Login</button>
+      <div id="login-error" class="login-error"></div>
+    </form>
+  </div>
+
+  <div class="dashboard" id="dashboard" style="display:none;">
+    <aside class="sidebar">
+      <h2>🌸 My Dashboard</h2>
+      <nav>
+        <ul>
+          <li class="active" data-section="home">Home</li>
+          <li data-section="stats">Stats</li>
+          <li data-section="soundboard">Soundboard</li>
+          <li data-section="about">About</li>
+        </ul>
+      </nav>
+      <div class="dark-toggle">
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle"/>
+          <span class="slider"></span>
+        </label>
+        <span>🌙 Dark Mode</span>
+      </div>
+      <button id="logout-btn" class="logout-btn">Logout</button>
+    </aside>
+    <main class="main-content">
+      <section id="home" class="section active">
+        <div class="user-card">
+          <img src="https://api.dicebear.com/8.x/bottts/svg?seed=cuteuser" alt="User Avatar" class="avatar" id="user-avatar">
+          <div>
+            <h2 id="greeting">Hello, Cute User! 🧸</h2>
+            <p>Glad to see you on your dashboard.</p>
+          </div>
+        </div>
+        <div class="widgets">
+          <!-- To-Do List Widget -->
+          <div class="widget todo-widget">
+            <h3>📝 To-Do List</h3>
+            <form id="todo-form">
+              <input type="text" id="todo-input" placeholder="Add new task..." autocomplete="off" />
+              <button type="submit">Add</button>
+            </form>
+            <ul id="todo-list"></ul>
+          </div>
+        </div>
+        <p>This is your cute dashboard. Select a tab from the sidebar!</p>
+      </section>
+      <section id="stats" class="section">
+        <h1>Stats 📊</h1>
+        <canvas id="myChart" width="400" height="220"></canvas>
+      </section>
+      <section id="soundboard" class="section">
+        <h1>🔊 Soundboard</h1>
+        <form id="add-sound-form" class="sound-form" enctype="multipart/form-data">
+          <input type="text" id="sound-name" placeholder="Sound name" required>
+          <input type="url" id="sound-url" placeholder="Sound URL (mp3, wav...)">
+          <span style="font-size:0.95em;color:#bbb;margin:0 6px;">or</span>
+          <input type="file" id="sound-file" accept="audio/*">
+          <button type="submit">Add Sound</button>
+        </form>
+        <p style="font-size:0.95em;color:#bbb;margin:0 0 8px 0;">
+          (Uploaded sound files must be under 2MB)
+        </p>
+        <div id="soundboard-list" class="soundboard-list"></div>
+        <p style="margin-top: 18px; font-size: 0.95em; color: #bbb;">
+          You can fnd free sounds at <a href="https://pixabay.com/sound-effects/" target="_blank">Pixabay Sound Effects</a>, use a URL, or upload your own file.
+        </p>
+      </section>
+      <section id="about" class="section">
+        <h1>About 💡</h1>
+        <p>
+          This dashboard is made using HTML, CSS, and JS.<br>
+          <ul>
+            <li>🌸 Cute design</li>
+            <li>🌙 Dark mode</li>
+            <li>📊 Chart.js chart</li>
+            <li>📝 To-Do List</li>
+            <li>🔊 Soundboard (user-specific, add your own sounds by URL or file!)</li>
+            <li>💡 Easily customizable!</li>
+          </ul>
+        </p>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

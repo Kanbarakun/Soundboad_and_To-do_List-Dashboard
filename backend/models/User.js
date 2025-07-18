@@ -19,3 +19,26 @@ UserSchema.methods.comparePassword = function(candidate) {
 };
 
 module.exports = mongoose.model('User', UserSchema);
+
+const mongoose = require('mongoose');
+
+const userSchema = new mongoose.Schema({
+  username: { type: String, required: true },
+  password: { type: String, required: true },
+  // Add this field!
+  cutePoints: {
+    type: Map,
+    of: Number,
+    default: {
+      Mon: 0,
+      Tue: 0,
+      Wed: 0,
+      Thu: 0,
+      Fri: 0,
+      Sat: 0,
+      Sun: 0
+    }
+  }
+});
+
+module.exports = mongoose.model('User', userSchema);
